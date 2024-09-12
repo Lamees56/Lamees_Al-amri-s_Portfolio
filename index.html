@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slideshow-container img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: none;
+        }
+
+        .slideshow-container img.active {
+            display: block;
+        }
+
+        .left, .right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <span class="left">&#10094;</span>
+    <img src="1.png" class="active">
+    <img src="2.png">
+    <img src="3.png">
+    <img src="4.png">
+    <img src="5.png">
+    <img src="6.png">
+    <img src="7.png">
+    <img src="8.png">
+    <span class="right">&#10095;</span>
+</div>
+
+<script>
+    const images = document.querySelectorAll('.slideshow-container img');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+    }
+
+    document.querySelector('.left').addEventListener('click', () => {
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+        showImage(currentIndex);
+    });
+
+    document.querySelector('.right').addEventListener('click', () => {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        showImage(currentIndex);
+    });
+</script>
+
+</body>
+</html>
