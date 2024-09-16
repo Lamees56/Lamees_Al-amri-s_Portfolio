@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slideshow with PDF Button</title>
+    <title>Image Slideshow with PDF Buttons</title>
     <style>
         body, html {
             margin: 0;
@@ -85,6 +85,7 @@
 
 <div class="slideshow-container">
     <span class="left" onclick="showImage(currentIndex - 1)">&#10094;</span>
+
     <img src="1.png" class="active">
     <img src="2.png">
     <img src="3.png">
@@ -93,9 +94,13 @@
     <img src="6.png">
     <img src="7.png">
     <img src="8.png">
+    <img src="9.png">
 
     <!-- PDF Button for Image 8 -->
-    <a href="Glam2Home_ByLamees-Al-Amri.pdf" class="pdf-button" target="_blank">Click Here for PDF</a>
+    <a href="Glam2Home_ByLamees-Al-Amri.pdf" class="pdf-button" id="pdfButton8" target="_blank">Click Here for PDF (Image 8)</a>
+
+    <!-- PDF Button for Image 9 -->
+    <a href="HYDRA-p2.pdf" class="pdf-button" id="pdfButton9" target="_blank">Click Here for PDF (Image 9)</a>
 
     <span class="right" onclick="showImage(currentIndex + 1)">&#10095;</span>
 </div>
@@ -103,7 +108,8 @@
 <script>
     let currentIndex = 0;
     const images = document.querySelectorAll('.slideshow-container img');
-    const pdfButton = document.querySelector('.pdf-button');
+    const pdfButton8 = document.getElementById('pdfButton8');
+    const pdfButton9 = document.getElementById('pdfButton9');
 
     function showImage(index) {
         if (index < 0) {
@@ -117,11 +123,20 @@
         images.forEach(img => img.classList.remove('active'));
         images[currentIndex].classList.add('active');
 
-        // Show the PDF button only on the 8th image
-        if (currentIndex === 7) {
-            pdfButton.classList.add('show-pdf-button');
-        } else {
-            pdfButton.classList.remove('show-pdf-button');
+        // Show the PDF button for image 8
+        if (currentIndex === 7) { // Image 8 (index 7)
+            pdfButton8.classList.add('show-pdf-button');
+            pdfButton9.classList.remove('show-pdf-button');
+        }
+        // Show the PDF button for image 9
+        else if (currentIndex === 8) { // Image 9 (index 8)
+            pdfButton8.classList.remove('show-pdf-button');
+            pdfButton9.classList.add('show-pdf-button');
+        }
+        // Hide both PDF buttons on other images
+        else {
+            pdfButton8.classList.remove('show-pdf-button');
+            pdfButton9.classList.remove('show-pdf-button');
         }
     }
 
