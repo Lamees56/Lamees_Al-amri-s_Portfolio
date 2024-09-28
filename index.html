@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slideshow with PDF Buttons</title>
+    <title>Image Slideshow with PDF and Medium Buttons</title>
     <style>
         body, html {
             margin: 0;
@@ -95,12 +95,16 @@
     <img src="7.png">
     <img src="8.png">
     <img src="9.png">
+    <img src="10.png"> <!-- 10th Image Added -->
 
     <!-- PDF Button for Image 8 -->
     <a href="Glam2Home_ByLamees-Al-Amri.pdf" class="pdf-button" id="pdfButton8" target="_blank">Click Here for more info</a>
 
     <!-- PDF Button for Image 9 -->
     <a href="HYDRA-p2.pdf" class="pdf-button" id="pdfButton9" target="_blank">Click Here for more info</a>
+
+    <!-- Medium Button for Image 10 -->
+    <a href="https://medium.com/@lameesalamri56/case-study-goodreads-redesign-this-redesign-will-make-you-never-want-to-uninstall-goodreads-again-c84094c4952c" class="pdf-button" id="mediumButton10" target="_blank">Read My Medium Article</a>
 
     <span class="right" onclick="showImage(currentIndex + 1)">&#10095;</span>
 </div>
@@ -110,6 +114,7 @@
     const images = document.querySelectorAll('.slideshow-container img');
     const pdfButton8 = document.getElementById('pdfButton8');
     const pdfButton9 = document.getElementById('pdfButton9');
+    const mediumButton10 = document.getElementById('mediumButton10'); // Medium Button for Image 10
 
     function showImage(index) {
         if (index < 0) {
@@ -127,16 +132,25 @@
         if (currentIndex === 7) { // Image 8 (index 7)
             pdfButton8.classList.add('show-pdf-button');
             pdfButton9.classList.remove('show-pdf-button');
+            mediumButton10.classList.remove('show-pdf-button');
         }
         // Show the PDF button for image 9
         else if (currentIndex === 8) { // Image 9 (index 8)
             pdfButton8.classList.remove('show-pdf-button');
             pdfButton9.classList.add('show-pdf-button');
+            mediumButton10.classList.remove('show-pdf-button');
         }
-        // Hide both PDF buttons on other images
+        // Show the Medium button for image 10
+        else if (currentIndex === 9) { // Image 10 (index 9)
+            pdfButton8.classList.remove('show-pdf-button');
+            pdfButton9.classList.remove('show-pdf-button');
+            mediumButton10.classList.add('show-pdf-button');
+        }
+        // Hide all buttons on other images
         else {
             pdfButton8.classList.remove('show-pdf-button');
             pdfButton9.classList.remove('show-pdf-button');
+            mediumButton10.classList.remove('show-pdf-button');
         }
     }
 
