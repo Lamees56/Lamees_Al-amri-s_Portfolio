@@ -3,159 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slideshow with PDF and Medium Buttons</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000;
-            overflow: hidden;
-        }
-
-        .slideshow-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .slideshow-container img {
-            width: 100vw;
-            height: 100vh;
-            object-fit: contain;
-            display: none;
-        }
-
-        .slideshow-container img.active {
-            display: block;
-        }
-
-        .left, .right {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 16px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            right: 0;
-        }
-
-        .pdf-button {
-            display: none;
-            position: absolute;
-            bottom: 100px; /* Adjust this value to move the button higher */
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            color: black;
-            font-size: 18px;
-            text-align: center;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .pdf-button:hover {
-            background-color: rgba(255, 255, 255, 1);
-        }
-
-        .show-pdf-button {
-            display: block;
-        }
-    </style>
+    <title>Lamees Al-Amri's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="LA_Logo.png" alt="Your Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#cv">CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="slideshow-container">
-    <span class="left" onclick="showImage(currentIndex - 1)">&#10094;</span>
+    <!-- Home Section -->
+    <section id="home">
+        <div class="content-card">
+            <p>Explore my journey in UI/UX design and development. With a passion for creating visually compelling and user-centric experiences, I combine technical skills and creative thinking to solve problems and design impactful digital solutions. So if you have the same thing in mind, <a href="LameesAlAmri_CV.pdf" target="_blank" class="cta-link">hire me</a>.</p>
+        </div>
+    </section>
 
-    <img src="1.png" class="active">
-    <img src="2.png">
-    <img src="3.png">
-    <img src="4.png">
-    <img src="5.png">
-    <img src="6.png">
-    <img src="7.png">
-    <img src="8.png">
-    <img src="9.png">
-    <img src="10.png"> <!-- 10th Image Added -->
+    <!-- Flower Divider -->
+    <section id="flower-divider">
+        <div class="flower-divider">
+            🌸 🌸 🌸 🌸 🌸
+        </div>
+    </section>
 
-    <!-- PDF Button for Image 8 -->
-    <a href="Glam2Home_ByLamees-Al-Amri.pdf" class="pdf-button" id="pdfButton8" target="_blank">Click Here for more info</a>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="content-card">
+            <h2>My Projects</h2>
 
-    <!-- PDF Button for Image 9 -->
-    <a href="HYDRA-p2.pdf" class="pdf-button" id="pdfButton9" target="_blank">Click Here for more info</a>
+            <!-- First row of Project Cards -->
+            <div class="projects-row">
+                <div class="card">
+                    <img src="B_interfaces.png" alt="Project 1">
+                    <div class="card-content">
+                        <p>I designed an app that simplifies the process of booking makeup artists, hairstylists, and photographers. 
+                            Users can customize their search based on skin tone, style, wedding vibe, and budget, 
+                            with an engaging slot-machine interface for quick choices. Integrated features like Instagram profiles, 
+                            reviews, and at-home services create a seamless and accountable booking experience.</p>
+                        <a href="Glam2Home_ByLamees-Al-Amri.pdf" target="_blank">View Case Study</a>
+                    </div>
+                </div>
 
-    <!-- Medium Button for Image 10 -->
-    <a href="https://medium.com/@lameesalamri56/case-study-goodreads-redesign-this-redesign-will-make-you-never-want-to-uninstall-goodreads-again-c84094c4952c" class="pdf-button" id="mediumButton10" target="_blank">Read My Medium Article</a>
+                <div class="card">
+                    <img src="H_interfaces.png" alt="Project 2">
+                    <div class="card-content">
+                        <p>I developed a user-friendly e-commerce platform dedicated to abaya shopping, making it easy for users to browse, 
+                            customize, and purchase their ideal abaya. With intuitive navigation and efficient search filters, 
+                            the site provides a streamlined shopping experience tailored to user preferences.</p>
+                        <a href="https://medium.com/@lameesalamri56/case-study-ecommerce-hydra-abaya-f2eeb1caf3b6" target="_blank">View Case Study</a>
+                    </div>
+                </div>
+            </div>
 
-    <span class="right" onclick="showImage(currentIndex + 1)">&#10095;</span>
-</div>
+            <!-- Second row of Project Cards -->
+            <div class="projects-row">
+                <div class="card">
+                    <img src="G_interfaces.png" alt="Project 3">
+                    <div class="card-content">
+                        <p>For the Goodreads redesign, I focused on improving user navigation, modernizing the interface,
+                             and enhancing the book discovery process. The updated design makes it easier for users to explore, 
+                            categorize, and review books, resulting in a smoother, more engaging user experience.</p>
+                        <a href="https://medium.com/@lameesalamri56/case-study-goodreads-redesign-this-redesign-will-make-you-never-want-to-uninstall-goodreads-again-c84094c4952c" target="_blank">View Case Study</a>
+                    </div>
+                </div>
 
-<script>
-    let currentIndex = 0;
-    const images = document.querySelectorAll('.slideshow-container img');
-    const pdfButton8 = document.getElementById('pdfButton8');
-    const pdfButton9 = document.getElementById('pdfButton9');
-    const mediumButton10 = document.getElementById('mediumButton10'); // Medium Button for Image 10
+                <div class="card">
+                    <img src="T_interfaces.png" alt="Project 4">
+                    <div class="card-content">
+                        <p>I created Taskins, an app that helps users break down tasks into manageable steps, making productivity more achievable. 
+                            With a built-in “breathe in and out” relaxation feature,
+                             users can manage stress while staying organized, creating a more calming and productive workflow.</p>
+                        <a href="https://medium.com/@lameesalamri56/case-study-wellness-project-taskins-baacf1f08dee" target="_blank">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function showImage(index) {
-        if (index < 0) {
-            currentIndex = images.length - 1;
-        } else if (index >= images.length) {
-            currentIndex = 0;
-        } else {
-            currentIndex = index;
-        }
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="content-card">
+            <h2>About Me</h2>
+            <div class="about-columns">
+                <!-- Coding Skills Column -->
+                <div class="column">
+                    <h3>My Coding Skills</h3>
+                    <ul>
+                        <li>HTML & CSS ★★★★★</li>
+                        <li>JavaScript ★★★☆☆</li>
+                        <li>C++ ★★★☆☆</li>
+                        <li>Responsive Web Design ★★★★★</li>
+                        <li>Accessibility Design ★★★★★</li>
+                    </ul>
+                </div>
 
-        images.forEach(img => img.classList.remove('active'));
-        images[currentIndex].classList.add('active');
+                <!-- Design Skills Column -->
+                <div class="column">
+                    <h3>My Design Skills</h3>
+                    <ul>
+                        <li>UX/UI Design ★★★★★</li>
+                        <li>Wireframing & Prototyping ★★★★★</li>
+                        <li>User Research & Testing ★★★★★</li>
+                        <li>Information Architecture ★★★★★</li>
+                        <li>Interaction Design ★★★★★</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Show the PDF button for image 8
-        if (currentIndex === 7) { // Image 8 (index 7)
-            pdfButton8.classList.add('show-pdf-button');
-            pdfButton9.classList.remove('show-pdf-button');
-            mediumButton10.classList.remove('show-pdf-button');
-        }
-        // Show the PDF button for image 9
-        else if (currentIndex === 8) { // Image 9 (index 8)
-            pdfButton8.classList.remove('show-pdf-button');
-            pdfButton9.classList.add('show-pdf-button');
-            mediumButton10.classList.remove('show-pdf-button');
-        }
-        // Show the Medium button for image 10
-        else if (currentIndex === 9) { // Image 10 (index 9)
-            pdfButton8.classList.remove('show-pdf-button');
-            pdfButton9.classList.remove('show-pdf-button');
-            mediumButton10.classList.add('show-pdf-button');
-        }
-        // Hide all buttons on other images
-        else {
-            pdfButton8.classList.remove('show-pdf-button');
-            pdfButton9.classList.remove('show-pdf-button');
-            mediumButton10.classList.remove('show-pdf-button');
-        }
-    }
+    <!-- CV Section -->
+    <section id="cv">
+        <div class="content-card">
+            <h2>My CV</h2>
+            <a href="LameesAlAmri_CV.pdf" target="_blank">Download CV</a>
+        </div>
+    </section>
 
-    showImage(currentIndex);
-</script>
-
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Lamees Al-Amri. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
