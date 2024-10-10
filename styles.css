@@ -96,6 +96,17 @@ section p {
     color: #ff69b4; /* Pink on hover */
 }
 
+/* CV Link */
+.cv-link {
+    font-size: 1.7rem;
+    color: #3498db;
+    text-decoration: underline;
+}
+
+.cv-link:hover {
+    color: #ff69b4;
+}
+
 /* Projects */
 .projects-row {
     display: flex;
@@ -142,28 +153,32 @@ section p {
 }
 
 /* About Me */
-.me .about-columns .design-skills{
+.me .about-columns .design-skills {
     justify-content: space-between;
 }
+
 .about-columns {
-    
     justify-content: space-between;
     align-items: center;
     display: flex;
 }
+
 .column {
     width: 100%;
     text-align: left;
 }
-.column h3{
+
+.column h3 {
     font-weight: 860;
 }
-.column .title{
+
+.column .title {
     text-align: center;
     font-weight: 860;
     margin-right: 150px;
     margin-bottom: 10px;
 }
+
 .column ul {
     list-style: none;
     padding: 0;
@@ -188,6 +203,7 @@ footer {
     text-align: center;
     font-size: 1rem;
 }
+
 
 
 
