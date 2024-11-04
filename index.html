@@ -3,138 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lamees Al-Amri's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Lamee's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #2E4057;
+            background-color: #FFFFFF;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            height: 80px;
+            padding: 0 280px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        .cv-button {
+            margin-right: auto;
+            text-decoration: none;
+            color: #2E4057;
+            background-color: #FFFFFF;
+            border: 1px solid #2E4057;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .cv-button:hover {
+            background-color: #2E4057;
+            color: #FFFFFF;
+        }
+        nav {
+            margin-right: auto;
+            display: flex;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2E4057;
+            font-size: 16px;
+            font-weight: 300;
+            padding: 5px;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #2E4057;
+            transition: width .3s;
+            margin-top: 5px;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .header-space {
+            height: 80px;
+        }
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            margin: 150px auto;
+        }
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 10;
+            width: 160px;
+            height: 100px;
+            margin-left: -80px;
+            margin-top: -50px;
+            border-radius: 5px;
+            background: #1e3f57;
+            animation: dot1_ 3s cubic-bezier(0.55,0.3,0.24,0.99) infinite;
+        }
+        .loader:nth-child(2) {
+            z-index: 11;
+            width: 150px;
+            height: 90px;
+            margin-top: -45px;
+            margin-left: -75px;
+            border-radius: 3px;
+            background: #3c517d;
+            animation-name: dot2_;
+        }
+        .loader:nth-child(3) {
+            z-index: 12;
+            width: 40px;
+            height: 20px;
+            margin-top: 50px;
+            margin-left: -20px;
+            border-radius: 0 0 5px 5px;
+            background: #6bb2cd;
+            animation-name: dot3_;
+        }
+        @keyframes dot1_ {
+            3%,97% {
+                width: 160px;
+                height: 100px;
+                margin-top: -50px;
+                margin-left: -80px;
+            }
+            30%,36% {
+                width: 80px;
+                height: 120px;
+                margin-top: -60px;
+                margin-left: -40px;
+            }
+            63%,69% {
+                width: 40px;
+                height: 80px;
+                margin-top: -40px;
+                margin-left: -20px;
+            }
+        }
+        @keyframes dot2_ {
+            3%,97% {
+                height: 90px;
+                width: 150px;
+                margin-left: -75px;
+                margin-top: -45px;
+            }
+            30%,36% {
+                width: 70px;
+                height: 96px;
+                margin-left: -35px;
+                margin-top: -48px;
+            }
+            63%,69% {
+                width: 32px;
+                height: 60px;
+                margin-left: -16px;
+                margin-top: -30px;
+            }
+        }
+        @keyframes dot3_ {
+            3%,97% {
+                height: 20px;
+                width: 40px;
+                margin-left: -20px;
+                margin-top: 50px;
+            }
+            30%,36% {
+                width: 8px;
+                height: 8px;
+                margin-left: -5px;
+                margin-top: 49px;
+                border-radius: 8px;
+            }
+            63%,69% {
+                width: 16px;
+                height: 4px;
+                margin-left: -8px;
+                margin-top: -37px;
+                border-radius: 10px;
+            }
+        }
+        section {
+            margin-top: 150px;
+            margin-bottom: 150px;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #2E4057;
+        }
+        .content-box {
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 1.6;
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #FFFFFF;
+            color: #2E4057;
+            border: 1px solid #2E4057;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 300;
+        }
+        .tab:hover {
+            background-color: #36454F;
+            color: #FFFFFF;
+        }
+        .projects-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        .project-card {
+            border: 2px solid #2E4057;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            width: 1100px;
+            height: 400px;
+            display: flex;
+            padding: 20px;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .image-placeholder {
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            width: 45%;
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #2E4057;
+        }
+        .text-box {
+            width: 50%;
+            height: 360px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #FFFFFF;
+            color: #2E4057;
+            border: 2px solid #2E4057;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            align-self: center;
+        }
+        .button:hover {
+            background-color: #A8D5BA;
+        }
+    </style>
+    <script>
+        function showProjects(category) {
+            const allCards = document.querySelectorAll('.project-card');
+            allCards.forEach(card => {
+                if (card.classList.contains(category) || category === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="header-content">
-            <div class="logo">
-                <img src="LA_Logo.png" alt="Your Logo">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#cv">My CV</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a href="Lamees_Al-Amri_CV (5).pdf" class="cv-button" download>Download CV</a>
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+        </nav>
     </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <p class="large-text">Explore my journey in UI/UX design and development. With a passion for creating visually compelling and user-centric experiences, I combine technical skills and creative thinking to solve problems and design impactful digital solutions. So if you have the same thing in mind, <a href="LameesAlAmri_CV.pdf" target="_blank" class="hire-link" id="hire-me">hire me</a>.</p>
+    <div class="header-space"></div>
 
-        <!-- Flower Divider with Animation -->
-        <section id="flower-divider">
-            <div class="flower-divider animated">
-                🌸 🌸 🌸 🌸 🌸
-            </div>
-        </section>
+    <!-- Animated Loaders -->
+    <div class="container">
+        <div class="loader"></div>
+        <div class="loader"></div>
+        <div class="loader"></div>
+    </div>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="content-box">
+            <p>Hey there! I'm a UI/UX designer who loves turning ideas into real, user-friendly designs. From brainstorming and feedback to prototyping in Figma and Flutter, I’m all in. Plus, with my coding know-how, I team up with developers to bring everything to life seamlessly!</p>
+        </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="projects-row">
-            <div class="card">
-                <img src="B_interfaces.png" alt="Project 1">
-                <div class="card-content">
-                    <p>I designed an app that simplifies the process of booking makeup artists, hairstylists, and photographers...</p>
-                    <a href="Glam2Home_ByLamees-Al-Amri.pdf" target="_blank">View Case Study</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="H_interfaces.png" alt="Project 2">
-                <div class="card-content">
-                    <p>We developed a user-friendly e-commerce platform dedicated to abaya shopping...</p>
-                    <a href="https://medium.com/@lameesalamri56/case-study-ecommerce-hydra-abaya-f2eeb1caf3b6" target="_blank">View Case Study</a>
-                </div>
-            </div>
+    <section id="projects" class="projects-section">
+        <h2 class="section-title">Projects</h2>
+        <div class="tab-navigation">
+            <button class="tab" onclick="showProjects('all')">All</button>
+            <button class="tab" onclick="showProjects('stakeholder')">Stakeholder</button>
+            <button class="tab" onclick="showProjects('redesign')">Redesign</button>
         </div>
 
-        <div class="projects-row">
-            <div class="card">
-                <img src="G_interfaces.png" alt="Project 3">
-                <div class="card-content">
-                    <p>For the Goodreads redesign, I focused on improving user navigation, modernizing the interface...</p>
-                    <a href="https://medium.com/@lameesalamri56/case-study-goodreads-redesign-this-redesign-will-make-you-never-want-to-uninstall-goodreads-again-c84094c4952c" target="_blank">View Case Study</a>
-                </div>
+        <div class="project-card all stakeholder">
+            <div class="image-placeholder">
+                <img src="thumbnail1.png" alt="Thumbnail Stakeholder 1" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-
-            <div class="card">
-                <img src="T_interfaces.png" alt="Project 4">
-                <div class="card-content">
-                    <p>We created Taskins, an app that helps users break down tasks into manageable steps...</p>
-                    <a href="https://medium.com/@lameesalamri56/case-study-wellness-project-taskins-baacf1f08dee" target="_blank">View Case Study</a>
-                </div>
+            <div class="text-box">
+                <p>GamifierSA, a company that specializes in gamification solutions, tasked us with creating a pitch for an e-wallet app enhanced with gamification features. 
+                    The aim was to boost user engagement and interaction. For more details, check out the full case study.</p>
+                <a href="https://medium.com/@lameesalamri56/final-project-case-study-inma-pay-b52930f03e3e" class="button">Learn More</a>
             </div>
         </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section class="me">
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-columns">
-                <!-- Coding Skills Column -->
-                <div class="column">
-                    <h3>My Coding Skills</h3>
-                    <ul>
-                        <li>HTML & CSS</li>
-                        <li>JavaScript</li>
-                        <li>C++</li>
-                        <li>Responsive Web Design</li>
-                        <li>Accessibility Design</li>
-                        <li>Java</li>
-                        <li>PHP</li>
-                        <li>Flutter & Dart</li>
-                    </ul>
-                </div>
-
-                <!-- Design Skills Column with 2 columns -->
-                <div class="column">
-                    <h3 class="title"> My Design Skills</h3>
-                    <ul class="design-skills">
-                        <li>UX/UI Design</li>
-                        <li>Wireframing & Prototyping</li>
-                        <li>User Research & Testing</li>
-                        <li>Information Architecture</li>
-                        <li>Interaction Design</li>
-                        <li>Typography</li>
-                        <li>Color Theory</li>
-                        <li>Branding and Identity</li>
-                        <li>Prototype Testing</li>
-                        <li>Figma</li>
-                        <li>Blender</li>
-                        <li>MS Office</li>
-                        <li>Communication Skills</li>
-                        <li>Critical Thinking</li>
-                    </ul>
-                </div>
+        
+        <div class="project-card all stakeholder">
+            <div class="image-placeholder">
+                <img src="thumbnail2.png" alt="Thumbnail Stakeholder 2" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-        </section>
+            <div class="text-box">
+                <p>Taskins is a wellness app that uses AI to help users break down complex tasks into smaller, manageable steps. This approach reduces overwhelm and promotes productivity. For more details, explore the full case study.</p>
+                <a href="https://medium.com/@lameesalamri56/case-study-wellness-project-taskins-baacf1f08dee" class="button">Learn More</a>
+            </div>
+        </div>
+        
+        <div class="project-card all stakeholder">
+            <div class="image-placeholder">
+                <img src="thumbnail3.png" alt="Thumbnail Stakeholder 3" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="text-box">
+                <p>For Hydra Abaya's redesign, we enhanced the user experience by simplifying the measurement selection process and adding a feature to view the abaya from all angles. This made it easier for users to choose the right fit and get a complete view of the product before purchasing.</p>
+                <a href="https://medium.com/@lameesalamri56/case-study-ecommerce-hydra-abaya-f2eeb1caf3b6" class="button">Learn More</a>
+            </div>
+        </div>
+        <div class="project-card all redesign">
+            <div class="image-placeholder">
+                <img src="thumbnail4.png" alt="Thumbnail INMAPAY" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="text-box">
+                <p>Our Goodreads redesign addresses information overload and clutter by merging the search, discover, and home pages with a category filter for simpler navigation. We moved "My Books" to "My Profile" and introduced expandable category cards for a cleaner profile layout, creating a calm, user-friendly interface with more white space.</p>
+                <a href="https://medium.com/@lameesalamri56/case-study-goodreads-redesign-this-redesign-will-make-you-never-want-to-uninstall-goodreads-again-c84094c4952c" class="button">Learn More</a>
+            </div>
+        </div>         
     </section>
-
-    <!-- My CV Section -->
-    <section id="cv">
-        <h2>My CV</h2>
-        <p>If you're interested in learning more about my experience and skills, you can download my CV below:</p>
-        <a href="LameesAlAmri_CV.pdf" target="_blank" class="cv-link">Download My CV</a>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Lamees Al-Amri</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
